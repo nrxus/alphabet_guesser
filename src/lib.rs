@@ -1,5 +1,5 @@
 pub fn get_alphabet(words: &[&str]) -> Vec<char> {
-    words.iter().map(|w| w.chars().next().unwrap()).collect()
+    words.iter().flat_map(|w| w.chars().next()).collect()
 }
 
 #[cfg(test)]
@@ -17,5 +17,10 @@ mod tests {
             get_alphabet(&["a", "b", "c", "d"]),
             vec!['a', 'b', 'c', 'd']
         );
+    }
+
+    #[test]
+    fn handles_empty() {
+        assert_eq!(get_alphabet(&[""]), vec![]);
     }
 }
