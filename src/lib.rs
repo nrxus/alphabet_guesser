@@ -186,4 +186,9 @@ mod tests {
             vec!['z', 't', 'q', '5', 'r', 'b', 'f']
         );
     }
+
+    #[test]
+    fn unicode() {
+        assert_eq!(get_alphabet(&["źęń", "ęęę", "ęńź"]), vec!['ź', 'ę', 'ń']);
+    }
 }
