@@ -53,7 +53,7 @@ impl Alphabet {
                     .entry(left)
                     // we could pre-allocate this set with a capacity
                     // but the number of characters before is unknown (cap at max chars - 1)
-                    .or_insert(HashSet::new())
+                    .or_insert_with(HashSet::new)
                     .insert(right);
 
                 // add `left` to the set of characters prior to `right`
@@ -61,7 +61,7 @@ impl Alphabet {
                     .entry(right)
                     // we could pre-allocate this set with a capacity
                     // but the number of characters after is unknown (cap at max chars - 1)
-                    .or_insert(HashSet::new())
+                    .or_insert_with(HashSet::new)
                     .insert(left);
             });
 

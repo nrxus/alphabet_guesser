@@ -5,22 +5,30 @@ sorted by that alphabet
 ## Setup
 
 This project is a Rust library. The easiest way to install Rust is
-through [rustup].
+through [rustup]. Rustup will install `rust` as well as its package
+manager `cargo` which is used for building, running, and testing.
 
 [rustup]: https://rustup.rs/
 
-## Running Tests
+With cargo installed, after you clone this repository, from the root of the project you can now
+
+### Run Tests
 
 `cargo test`
 
-## Reading External Docs
-
-This library is not published but you can read the docs locally by
-doing:
+### Read External Docs
 
 `cargo doc --open`
 
 This will open a local version of the docs in your browser.
+
+## Running without Rust
+
+For a quick easy way to test or edit the solution without installing
+Rust, I have also made a [playground] of the solution. From here you
+can click on `TEST` to run all the tests.
+
+[playground]: https://play.rust-lang.org/?version=stable&mode=debug&edition=2018&gist=5c7b45b29ec39ca34ab93e771d6dcbc3
 
 ## High Level Overview
 
