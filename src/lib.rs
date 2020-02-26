@@ -178,4 +178,12 @@ mod tests {
     fn ties_in_first_character() {
         assert_eq!(get_alphabet(&["bac", "aaa", "acb"]), vec!['b', 'a', 'c']);
     }
+
+    #[test]
+    fn more_complex() {
+        assert_eq!(
+            get_alphabet(&["zzzzzz", "zzzzq", "t", "qqzq", "qqz5", "55", "5b", "rr", "rbb", "rbf"]),
+            vec!['z', 't', 'q', '5', 'r', 'b', 'f']
+        );
+    }
 }
