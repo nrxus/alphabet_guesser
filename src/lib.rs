@@ -4,6 +4,21 @@ use alphabet::Alphabet;
 
 /// returns a list of characters for a given alphabet
 /// that has the same sort order as the list of words passed in the input
+///
+/// # Usage:
+///
+/// ```rust
+/// use alphabet_guesser::get_alphabet;
+///
+/// let words = ["bac", "aaa", "acb"];
+/// let alphabet = get_alphabet(&words);
+/// assert_eq!(alphabet, vec!['b', 'a', 'c']);
+/// ```
+///
+/// # Panics:
+///
+/// the behavior of this function for a list of words whose order is conflicting
+/// or ambiguous is left unspecified, and it may panic. e.g., `["a", "b", "a"]`
 pub fn get_alphabet(words: &[&str]) -> Vec<char> {
     let mut alphabet = match Alphabet::new(words) {
         // no alphabet could be created; no characters
@@ -28,8 +43,8 @@ mod tests {
     #[test]
     fn single_letter() {
         assert_eq!(
-            get_alphabet(&["a", "b", "c", "d"]),
-            vec!['a', 'b', 'c', 'd']
+            get_alphabet(&["d", "c", "b", "a"]),
+            vec!['d', 'c', 'b', 'a']
         );
     }
 

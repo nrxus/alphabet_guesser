@@ -10,9 +10,10 @@ pub struct Alphabet {
 }
 
 impl Alphabet {
-    /// words that are sorted based on the unknown Alphabet
-    /// returns None if there are no characters in the Alphabet
-    /// otherwise returns Some(Alphabet)
+    /// Returns an Option<Alphabet> whose order is based on the order of the words
+    ///
+    /// The result is None if there are no characters in the input words.
+    /// Otherwise, the produced alphabet is returned
     pub fn new(words: &[&str]) -> Option<Self> {
         let characters: HashSet<_> = words.iter().flat_map(|w| w.chars()).collect();
 
@@ -47,7 +48,7 @@ impl Alphabet {
                     .find(|(left, right)| left != right)
             })
             .for_each(|(left, right)| {
-                // add `right` to the set of characters latter to `left`
+                // add `right` to the set of characters that come after `left`
                 latter_constraints
                     .entry(left)
                     // we could pre-allocate this set with a capacity
